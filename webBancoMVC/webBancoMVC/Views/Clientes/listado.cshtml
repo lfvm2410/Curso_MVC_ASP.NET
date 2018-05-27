@@ -1,0 +1,100 @@
+﻿@model IEnumerable<EntidadClientes>
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Listado general de clientes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    @*<script src="~/Script/jquery-1.10.2.min.js"></script>
+    <script src="~/Script/jquery.validate.min.js"></script>
+    <script src="~/Script/jquery.validate.unobtrusive.min.js"></script>*@
+</head>
+<body style="margin-top:10px">
+    <form class="form-horizontal" id="form1">
+        <div class="container">
+            <div class="row">
+                <div class="well well-sm">
+                    <fieldset>
+                        <table class="table table-hover" style="font-size:small">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.ClienteID)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.TipoClienteID)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Apellidos)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Direccion)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Telefono)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+                                    </th>
+                                    <th scope="row">
+                                        @Html.DisplayNameFor(model => model.Sexo)
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ClienteID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TipoClienteID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Apellidos)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Direccion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Telefono)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sexo)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Modificar", "modificarCliente", new { id = item.ClienteID }) |
+                                        @Html.ActionLink("Eliminar", "eliminarCliente", new { id = item.ClienteID },
+                                        new { onClick = "return confirm('Está seguro de borrar el registro?')" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <span>
+                            @Html.ActionLink("Cliente nuevo", "agregarCliente", "", null, new { @class = "btn btn-primary btn-large" })
+                        </span>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
