@@ -15,5 +15,29 @@ namespace webBancoMVC.Controllers
             ModelState.Clear();
             return View(oClientes.ListarClientes());
         }
+
+        public ActionResult agregarCliente(EntidadClientes cliente)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    DALClientes oCliente = new DALClientes();
+                    if (oCliente.InsertarCliente(cliente))
+                    {
+                        ViewBag.Mensaje = "Cliente insertado exitosamente";
+                    }
+                    else
+                    {
+                        ViewBag.Mensaje = "Ocurrió un error en la inclusi[on del cliente";
+                    }
+                }
+               
+            }catch(Exception ex)
+            {
+                ex = null;
+            }
+            return View();
+        }
     }
 }
