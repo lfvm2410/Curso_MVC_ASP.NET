@@ -10,7 +10,7 @@
         crossorigin="anonymous">
 </script>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("agregarCliente", "Clientes", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     

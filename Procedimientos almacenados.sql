@@ -1,7 +1,7 @@
 -- SP Insertar Cliente
 
 CREATE PROCEDURE InsertarCliente 
-				 @_ClienteID AS NVARCHAR(50),
+				 @_ClienteID AS INT,
 				 @_Nombre AS NVARCHAR(50),
 				 @_Apellidos AS NVARCHAR(50),
 				 @_Direccion AS NVARCHAR(50),
@@ -14,7 +14,7 @@ CREATE PROCEDURE InsertarCliente
 AS
 SET NOCOUNT ON;
 BEGIN
-INSERT INTO Clientes VALUES (@_TipoClienteID,  @_Nombre, @_Apellidos, @_Direccion, @_Telefono, 
+INSERT INTO Clientes VALUES (@_ClienteID, @_TipoClienteID,  @_Nombre, @_Apellidos, @_Direccion, @_Telefono, 
                              @_Email, @_Fecha_Ingreso, @_Sexo, @_Clave) 
 END
 
